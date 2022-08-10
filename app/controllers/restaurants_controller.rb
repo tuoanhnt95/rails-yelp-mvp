@@ -1,12 +1,12 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:create, :show]
+  before_action :set_restaurant, only: [:show]
   def new
     @restaurant = Restaurant.new
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save?
+    if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
       render :new, status: :unprocessable_entity

@@ -7,4 +7,14 @@
   <%= @restaurant.address %>
 
   <h3>Reviews</h3>
+  <% if @restaurant.reviews.any? %>
+    <ul><% @restaurant.reviews.each do |review| %>
+      <li><%= review.rating %>
+        <br>
+        <%= review.content %>
+      </li>
+    <% end %></ul>
+  <% else %>
+    <%= link_to "Let's review", new_review_path(@restaurant) %>
+  <% end %>
 </div>
