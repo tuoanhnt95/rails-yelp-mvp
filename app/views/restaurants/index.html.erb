@@ -1,0 +1,12 @@
+<%= render 'shared/navbar' %>
+
+<div class="container">
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+  <li>
+    <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    <%= link_to "X", restaurants_path %>
+  </li>
+    <% end %>
+  </ul>
+</div>

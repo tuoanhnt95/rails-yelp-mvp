@@ -1,0 +1,11 @@
+<%= render 'shared/navbar' %>
+<div class="container">
+  <h2>Add Restaurant</h2>
+
+  <%= simple_form_for(@restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category, collection: Restaurant::CATEGORIES %>
+    <%= f.input :address %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>
