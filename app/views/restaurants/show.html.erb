@@ -6,6 +6,7 @@
   <br>
   <%= @restaurant.address %>
 
+  <br>
   <h3>Reviews</h3>
   <% if @restaurant.reviews.any? %>
     <ul><% @restaurant.reviews.each do |review| %>
@@ -15,6 +16,10 @@
       </li>
     <% end %></ul>
   <% else %>
-    <%= link_to "Let's review", new_review_path(@restaurant) %>
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
   <% end %>
 </div>
